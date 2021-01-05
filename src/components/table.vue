@@ -52,6 +52,7 @@
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>
+    <el-button type="primary" @click="$router.push('/echarts1')">跳转</el-button>
   </div>
 </template>
 <script>
