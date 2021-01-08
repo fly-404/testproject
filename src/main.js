@@ -15,6 +15,11 @@ Vue.use(print)
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 
+// AES加密
+import { encrypt, decrypt } from '@/utils/encryp.js';
+Vue.prototype.$encrypt = encrypt
+Vue.prototype.$decrypt = decrypt
+
 Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;
 new Vue({
