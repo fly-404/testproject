@@ -2,6 +2,8 @@
   <div>
     <el-button type="primary" @click="handleDown">PDF下载</el-button>
     <el-button type="primary" @click="PrintRow">PDF打印</el-button>
+    <el-button type="primary" @click="initt">点击重新渲染</el-button>
+    <div>{{ list }}</div>
     <div id="pdf" ref="print">
       <img src="../assets/logo.png" alt="" />
       <div
@@ -9,25 +11,40 @@
         style="width: 600px; height: 600px; border: 1px solid yellow"
       ></div>
     </div>
+    <div @click="$router.go(-1)">返回</div>
   </div>
 </template>
 <script>
 import htmlToPdf from "@/utils/htmlToPdf";
 export default {
+  name: "echarts1",
+  inject: ["load", "loader"],
   data() {
-    return {};
+    return {
+      list: "",
+    };
+  },
+  created() {
+    console.log(1111);
+    this.list = sessionStorage.getItem("list") || "aaa";
   },
   mounted() {
     this.initEchart();
+    this.loader();
   },
   methods: {
+    //
+    initt() {
+        console.log("timeout");
+        this.load();
+    },
     //导出
     handleDown() {
       htmlToPdf.downloadPDF(document.getElementById("pdf"), "日历表");
     },
     //打印
-    PrintRow(index, row){
-            this.$print(this.$refs.print) // 使用
+    PrintRow(index, row) {
+      this.$print(this.$refs.print); // 使用
     },
     initEchart() {
       let _this = this;

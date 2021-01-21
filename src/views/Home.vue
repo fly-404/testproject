@@ -2,7 +2,7 @@
  * @Autor: fanmm
  * @Date: 2021-01-05 12:29:51
  * @LastEditors: fanmm
- * @LastEditTime: 2021-01-06 16:42:39
+ * @LastEditTime: 2021-01-21 09:06:30
 -->
 <template>
   <div class="home">
@@ -17,7 +17,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import tabb  from "@/components/table.vue"
 
 export default {
-  name: "Home",
+  name: "home",
   components: {
     HelloWorld,
     tabb
@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted(){
-    this.aes();
+    // this.aes();
   }
 };
 </script>
