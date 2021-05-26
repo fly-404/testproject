@@ -9,6 +9,8 @@
     "crm": "vue-cli-service build --mode crm"
   },
   "dependencies": {
+    "@antv/g6": "^4.2.7",
+    "@ztree/ztree_v3": "^3.5.46",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",

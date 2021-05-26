@@ -2,7 +2,7 @@
  * @Autor: fanmm
  * @Date: 2020-10-10 09:43:00
  * @LastEditors: fanmm
- * @LastEditTime: 2021-01-21 11:11:28
+ * @LastEditTime: 2021-05-11 09:53:54
 -->
 <template>
   <div id="app">
@@ -30,6 +30,15 @@ export default {
       loader:this.loader
     }
   },
+  mounted(){
+    this.resetRem();
+    clearTimeout(this.b);
+    window.onresize = () => {
+      this.b = setTimeout(() => {
+        this.resetRem();
+      }, 200);
+    };
+  },
   methods:{
     load(){
       console.log("2222222222")
@@ -42,7 +51,13 @@ export default {
     },
     loader(){
       this.includedComponents = ['echarts1'];
-    }
+    },
+     resetRem() {
+      var hmtlH =
+        document.documentElement.clientHeight || document.body.clientHeight;
+      var html = document.documentElement;
+      html.style.fontSize = (hmtlH / 12) * 1.14 + "px";
+    },
   }
 }
 </script>
@@ -52,8 +67,9 @@ export default {
   padding: 0;
   margin:0;
 }
-body{
+body,html{
 background: #ccc;
+height: 100%;
 
 }
 #app {
@@ -64,8 +80,7 @@ background: #ccc;
   color: #2c3e50;
   width: 100%;
   height: 100%;
-  
-  
+  // border: 1px solid red;
 }
 
 </style>

@@ -78,6 +78,14 @@ const routes = [
     path: "/rate",
     name: "rate",
     component: ()=>import("../components/rate/index.vue")
+  },{
+    path: "/ztree",
+    name: "ztree",
+    component: ()=>import("../views/zTree.vue")
+  },{
+    path: "/g6",
+    name: "g6",
+    component: ()=>import("../views/g6.vue")
   }
 ];
 
